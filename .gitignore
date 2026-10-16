@@ -1,0 +1,25 @@
+# Installation archive & extracted folders (exceeds GitHub 100MB limit)
+*.tar.gz
+*.tgz
+Antigravity-x64/
+antigravity/
+
+# Local environment configuration & credentials
+.env
+.env.*
+!.env.example
+*token*
+*.token
+*.key
+*.pem
+accounts/
+.gemini/
+
+# Process ID and logs
+*.pid
+*.log
+logs/
+
+# Operating system artifacts
+.DS_Store
+Thumbs.db

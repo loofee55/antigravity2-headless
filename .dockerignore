@@ -1,0 +1,14 @@
+.git
+.gitignore
+.env
+.env.*
+*token*
+*.token
+*.key
+*.pem
+accounts/
+.gemini/
+*.log
+logs/
+*.tar.gz
+*.tgz

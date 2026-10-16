@@ -1,0 +1,22 @@
+services:
+  antigravity2-headless:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: antigravity2-headless:latest
+    container_name: antigravity2-headless
+    restart: unless-stopped
+    user: "${CONTAINER_UID_GID:-1000:1000}"
+    environment:
+      - HOME=${ANTIGRAVITY_HOME:-/home/user}
+      - TZ=${TZ:-Asia/Ho_Chi_Minh}
+      - ELECTRON_OZONE_PLATFORM_HINT=${ELECTRON_OZONE_PLATFORM_HINT:-headless}
+    volumes:
+      # Mount configuration and persistent session directory from host
+      - ${HOST_CONFIG_PATH:-/home/user}:/home/user
+      # Mount projects and workspace directory
+      - ${HOST_WORK_PATH:-/opt/work}:/opt/work
+    working_dir: /opt/work
+    stdin_open: true
+    tty: true
+    command: ["/opt/antigravity/antigravity", "--no-sandbox"]
